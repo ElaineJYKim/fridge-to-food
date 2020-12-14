@@ -1,0 +1,19 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/user/Desktop/Fridge/myfridge/target/scala-2.13/myfridge_2.13-1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/user/Desktop/Fridge/myfridge/target/scala-2.13/classes/application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fridge[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/user/Desktop/Fridge/myfridge/target/scala-2.13/classes/fridge[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fridge/http[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/user/Desktop/Fridge/myfridge/target/scala-2.13/classes/fridge/http[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fridge/http/Search$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/user/Desktop/Fridge/myfridge/target/scala-2.13/classes/fridge/http/Search$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fridge/http/Search.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/user/Desktop/Fridge/myfridge/target/scala-2.13/classes/fridge/http/Search.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fridge/akka[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/user/Desktop/Fridge/myfridge/target/scala-2.13/classes/fridge/akka[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fridge/akka/AkkaManager$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/user/Desktop/Fridge/myfridge/target/scala-2.13/classes/fridge/akka/AkkaManager$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fridge/akka/AkkaManager.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/user/Desktop/Fridge/myfridge/target/scala-2.13/classes/fridge/akka/AkkaManager.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
