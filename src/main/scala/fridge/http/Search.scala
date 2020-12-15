@@ -9,17 +9,20 @@ import akka.stream.ActorMaterializer
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.concurrent.duration._
 import akka.http.scaladsl.model._
-import akka.http.scaladsl.model.headers.{BasicHttpCredentials, RawHeader}
+import akka.http.scaladsl.model.headers.RawHeader
+import fridge.http.Mapper._
 
 object Search {
+  // REQUEST & RESPONSE from api
+  // use Search(userQuery) to retreive Future[SearchResult]
+
   // import fridge.akka.AkkaManager._
   implicit val system: ActorSystem = ActorSystem()
   implicit val materializer: ActorMaterializer = ActorMaterializer()
   implicit val executionContext: ExecutionContextExecutor = system.dispatcher
 
-
-
   def request(userQuery: String): HttpRequest = {
+
     // Request Parameters
     val display = 10
     val start = 1
@@ -46,8 +49,8 @@ object Search {
     request
   }
 
-  def sendRequest(items: String): Future[String] = {
-    val responseFuture: Future[HttpResponse] = Http().singleRequest(request(items))
+  def sendRequest(userQuery: String): Future[String] = {
+    val responseFuture: Future[HttpResponse] = Http().singleRequest(request(userQuery))
     val entityFuture: Future[HttpEntity.Strict] = responseFuture.flatMap {
       response => response.entity.toStrict(2.seconds)
     }
@@ -55,8 +58,20 @@ object Search {
     entityFuture.map(entity => entity.data.utf8String)
   }
 
+  def search(userQuery:String): Future[Seq[Item]] = {
+    val responseFuture = sendRequest(userQuery)
+    responseFuture.map(result =>
+      mapper.readValue[SearchResult](result)
+    ).map(searchResults => searchResults.items)
+  }
+
   def main(args: Array[String]): Unit = {
-    sendRequest("양파, 버섯, 마늘").foreach(println)
+    search("양파, 버섯, 마늘").map(seq =>
+      seq.map(it =>
+        print(it.title)
+      )
+    )
   }
 
 }
+

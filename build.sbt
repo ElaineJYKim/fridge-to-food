@@ -10,6 +10,7 @@ libraryDependencies ++= {
   val akkaV       = "2.6.10"
   val scalaTestV  = "3.2.3"
   Seq(
+    "de.heikoseeberger" %% "akka-http-jackson" % "1.35.2",
     "com.typesafe.akka" %% "akka-actor" % akkaV,
     "com.typesafe.akka" %% "akka-stream" % akkaV,
     "com.typesafe.akka" %% "akka-testkit" % akkaV,
