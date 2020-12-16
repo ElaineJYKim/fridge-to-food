@@ -1,1 +1,1 @@
-["fridge.http.Mapper","fridge.http.Search"]
+["fridge.http.Mapper","fridge.http.Search","fridge.http.SearchExtract"]

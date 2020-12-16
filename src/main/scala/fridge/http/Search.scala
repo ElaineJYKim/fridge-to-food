@@ -14,7 +14,7 @@ import fridge.http.Mapper._
 
 object Search {
   // REQUEST & RESPONSE from api
-  // use Search(userQuery) to retreive Future[SearchResult]
+  // use Search(userQuery) to retrieve Future[SearchResult]
 
   // import fridge.akka.AkkaManager._
   implicit val system: ActorSystem = ActorSystem()
@@ -24,8 +24,8 @@ object Search {
   def request(userQuery: String): HttpRequest = {
 
     // Request Parameters
-    val display = 10
-    val start = 1
+    val DISPLAY = 20
+    val START = 1
 
     // Request Info
     val url = "https://openapi.naver.com/v1/search/encyc.json"
@@ -43,7 +43,7 @@ object Search {
 
     val request = HttpRequest(
       HttpMethods.GET,
-      url + s"?query=$query&display=$display&start=$start&sort=sim",
+      url + s"?query=$query&display=$DISPLAY&start=$START&sort=sim",
     ).withHeaders(header)
 
     request

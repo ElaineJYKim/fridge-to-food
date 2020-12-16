@@ -7,7 +7,7 @@ import com.fasterxml.jackson.module.scala.experimental.ScalaObjectMapper
 case class SearchResult(lastBuildDate: String, total: Int, start: Int, display: Int, items: Seq[Item])
 case class Item(title:String, link: String, description: String, thumbnail: String)
 
-case class DishInfo(title: String, link: String, thumbnail: String, ingredients: Seq[Ingredient])
+case class DishInfo(title: String, link: String, thumbnail: String, ingredients: String) // TODO: ingredients: Seq[Ingredient]
 case class Ingredient(name: String, amount: Double, unit: String)
 
 
