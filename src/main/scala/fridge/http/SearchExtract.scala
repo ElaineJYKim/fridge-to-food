@@ -1,7 +1,7 @@
 package fridge.http
 
 import fridge.http.Search._
-import fridge.http.Scrapper._
+import fridge.http.Scraper._
 
 import scala.concurrent.Future
 
@@ -17,8 +17,7 @@ object SearchExtract {
   def extract(item: Item): Option[DishInfo] = {
     // Returns None if item does not contain a recipe
     // Else: Returns DishInfo
-
-    isRecipe(item.link) match {
+    extractor(item.link) match {
       case Some(ingredients) => Some(DishInfo(html2text(item.title),item.link, item.thumbnail, ingredients))
       case None => None
     }
@@ -51,9 +50,9 @@ object SearchExtract {
   }
 
   def main(args: Array[String]): Unit = {
-//    searchRecipes(List("양파","버섯","마늘")).map { seq =>
-//      seq.map(info => println(info.link))
-//    }
+    searchRecipes(List("양파","버섯","마늘")).map { seq =>
+      seq.map(info => println(info.ingredients))
+    }
   }
 
 }
