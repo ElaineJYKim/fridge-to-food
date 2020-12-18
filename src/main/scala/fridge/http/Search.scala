@@ -10,7 +10,8 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.concurrent.duration._
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.model.headers.RawHeader
-import fridge.http.Mapper._
+import fridge.http.JsonUtil._
+import fridge.http.SearchExtract.searchRecipes
 
 object Search {
   // REQUEST & RESPONSE from api
@@ -33,8 +34,9 @@ object Search {
     val clientSecret = "KAX1A5c1fk"
 
     // convert string to UTF-8
+    // TODO: TESTING PURPOSE CHANGE
     val query = URLEncoder.encode(userQuery, "UTF-8")
-    // val query = userQuery.getBytes("UTF-8")
+    //val query = userQuery
 
     val header = Seq(
       RawHeader("X-Naver-Client-Id", s"$clientId"),
@@ -61,17 +63,8 @@ object Search {
   def search(userQuery:String): Future[Seq[Item]] = {
     val responseFuture = sendRequest(userQuery)
     responseFuture.map(result =>
-      mapper.readValue[SearchResult](result)
+      fromJson[SearchResult](result)
     ).map(searchResults => searchResults.items)
   }
-
-  def main(args: Array[String]): Unit = {
-    search("양파, 버섯, 마늘").map(seq =>
-      seq.map(it =>
-        print(it.title)
-      )
-    )
-  }
-
 }
 

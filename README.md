@@ -1,7 +1,17 @@
 # FRIDGE
 
-A web application that will recommend you recipe depending on the ingredients you have in your fridge. 
+A web application that will recommend you recipes depending on the ingredients you have in your fridge. 
 
 A scala application
 
 Pulling recipe from Naver Open API: Search
+
+### Scala Backend
+
+GET url/?query=____________
+
+query = string
+
+Request: http://localhost:9000/?query=양파, 버섯...
+Response: {Response{ DishInfo{...}, DishInfo{...}, ...}} 
+

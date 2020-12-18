@@ -40,19 +40,13 @@ object SearchExtract {
     filteredItems
   }
 
-  def searchRecipes(userQuery: List[String]): Future[Seq[DishInfo]] = {
+  def searchRecipes(userQuery: String): Future[Response] = {
     // Returns Sequence of valid DishInfos
     // Seq Max Len = MAXRESULTS
 
-    val query = formatQuery(userQuery)
-    val itemsSeqFuture: Future[Seq[Item]] = search(query)
-    itemsSeqFuture.map(itemsSeq => filterItems(itemsSeq))
-  }
-
-  def main(args: Array[String]): Unit = {
-    searchRecipes(List("양파","버섯","마늘")).map { seq =>
-      seq.map(info => println(info.ingredients))
-    }
+    //val query = formatQuery(userQuery)
+    val itemsSeqFuture: Future[Seq[Item]] = search(userQuery)
+    itemsSeqFuture.map(itemsSeq => Response(filterItems(itemsSeq)))
   }
 
 }

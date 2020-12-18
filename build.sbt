@@ -5,13 +5,19 @@ name := "myfridge"
 version := "1.0"
 libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2"
 
+
 libraryDependencies ++= {
   val akkaHttpV   = "10.2.1"
   val akkaV       = "2.6.10"
   val scalaTestV  = "3.2.3"
   Seq(
+    // web scraper
     "net.ruippeixotog" %% "scala-scraper" % "2.2.0",
+
+    // json handler
     "de.heikoseeberger" %% "akka-http-jackson" % "1.35.2",
+
+    // akka
     "com.typesafe.akka" %% "akka-actor" % akkaV,
     "com.typesafe.akka" %% "akka-stream" % akkaV,
     "com.typesafe.akka" %% "akka-testkit" % akkaV,

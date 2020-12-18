@@ -61,10 +61,4 @@ object Scraper {
   // TODO: Find the right placement for this function
   def html2text(html: String): String = Jsoup.parse(html).text
 
-  def main(args: Array[String]): Unit = {
-    extractor("https://terms.naver.com/entry.nhn?docId=5739989&cid=63025&categoryId=63777") match {
-      case Some(_) => print("NOICE")
-      case None => print("try again")
-    }
-  }
 }
