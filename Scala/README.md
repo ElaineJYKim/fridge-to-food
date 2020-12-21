@@ -13,5 +13,7 @@ GET url/?query=____________
 query = string
 
 Request: http://localhost:9000/?query=양파, 버섯...
+
 Response: {Response{ DishInfo{...}, DishInfo{...}, ...}} 
 
+DishInfo(title: String, link: String, thumbnail: String, ingredients: String)
