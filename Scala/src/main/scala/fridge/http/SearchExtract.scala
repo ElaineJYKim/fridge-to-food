@@ -40,6 +40,7 @@ object SearchExtract {
     filteredItems
   }
 
+  // TODO: TO EITHER
   def searchRecipes(userQuery: String): Future[Response] = {
     // Returns Sequence of valid DishInfos
     // Seq Max Len = MAXRESULTS

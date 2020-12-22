@@ -34,9 +34,7 @@ object Search {
     val clientSecret = "KAX1A5c1fk"
 
     // convert string to UTF-8
-    // TODO: TESTING PURPOSE CHANGE
     val query = URLEncoder.encode(userQuery, "UTF-8")
-    //val query = userQuery
 
     val header = Seq(
       RawHeader("X-Naver-Client-Id", s"$clientId"),
@@ -60,6 +58,7 @@ object Search {
     entityFuture.map(entity => entity.data.utf8String)
   }
 
+  // TODO: Change to EITHER = Extract error message
   def search(userQuery:String): Future[Seq[Item]] = {
     val responseFuture = sendRequest(userQuery)
     responseFuture.map(result =>

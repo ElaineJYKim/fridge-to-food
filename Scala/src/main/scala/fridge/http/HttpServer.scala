@@ -12,6 +12,7 @@ object HttpServer extends App{
 
   import fridge.akka.AkkaManager._
 
+  // TODO: Include error
   val route = {
     parameter("query") { userQuery =>
       complete {

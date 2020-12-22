@@ -12,7 +12,8 @@ GET url/?query=____________
 
 query = string
 
-Request: http://localhost:9000/?query=양파, 버섯...
+Request: http://localhost:9000/?
+=양파, 버섯...
 
 Response: {Response{ DishInfo{...}, DishInfo{...}, ...}} 
 
