@@ -16,14 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <Container>
-        <Grid columns={2} relaxed='very'>
-          <Grid.Column>
-            <Fridge />
-          </Grid.Column>
-          <Grid.Column>
-            <Results />
-          </Grid.Column>
-        </Grid>
+        <Service/>
       </Container>
     );
   }

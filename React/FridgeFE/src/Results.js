@@ -4,32 +4,31 @@ import { Header, List, Item} from 'semantic-ui-react'
 class Results extends React.Component {
     constructor(props) {
         super(props);
+        const { ingredients } = this.props;
         this.state = {
-            ingredients: [],
+            ingredients,
             response: [],
         };
     }
 
-    // componentDidMount() {
-    //     const ingredients = this.state.ingredients
-    //     const ingredientsString = ingredients.join(',')
-    //     const url = 'http://localhost:9000/?query='.concat(ingredientsString)
+    componentWillReceiveProps(props) {
+        const { ingredients } = props;
+        this.setState({ ingredients });
+      }
 
-    //     fetch(url)
-    //        .then((result) => result.json())
-    //        .then(response => {
-    //         this.setState({response: response.Recipes})
-    //       })
-    //       .catch(err => {
-    //         console.log(err);
-    //       }); 
-    // }
-
-    componentDidMount() {
-        this.callApi()
-        .then(res => this.setState({ response: res.Recipes }))
-        .catch(err => console.log(err));
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.ingredients!== this.state.ingredients) {
+            this.callApi()
+            .then(res => this.setState({ response: res.Recipes }))
+            .catch(err => console.log(err));
+        }
     }
+
+    // componentDidMount() {
+    //     this.callApi()
+    //     .then(res => this.setState({ response: res.Recipes }))
+    //     .catch(err => console.log(err));
+    // }
 
     callApi = async () => {
         const ingredients = this.state.ingredients
@@ -75,10 +74,3 @@ class Results extends React.Component {
 
 
 export default Results;
-
-
-
-// {recipes.forEach(function(recipe) { 
-//     return(<p>{recipe.ingredientsString}</p>)
-//     //console.log(recipe.ingredients)
-// })}

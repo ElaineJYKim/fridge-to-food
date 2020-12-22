@@ -8,8 +8,11 @@ class Service extends React.Component {
         super(props);
         this.state = { 
             ingredients: [],
-            results: [],
         };
+    }
+
+    handleIngredients(ingredientsList) {
+      this.setState({ingredients: ingredientsList})
     }
 
     render() {
@@ -17,10 +20,14 @@ class Service extends React.Component {
           <div>
             <Grid columns={2} relaxed='very'>
               <Grid.Column>
-                <Fridge />
+                <Fridge 
+                  onChange={this.handleIngredients.bind(this)}
+                />
               </Grid.Column>
               <Grid.Column>
-                <Results />
+                <Results 
+                  ingredients={this.state.ingredients}
+                />
               </Grid.Column>
             </Grid>
           </div>

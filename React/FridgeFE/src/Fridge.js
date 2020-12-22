@@ -39,7 +39,8 @@ class Fridge extends React.Component {
 
     handleSearch() {
         const ingredients = this.state.ingredients;
-        // send ingredients list to Results
+        
+        this.props.onChange(ingredients)
     }
     
     render() {
