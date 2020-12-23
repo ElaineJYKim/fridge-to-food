@@ -1,0 +1,26 @@
+.ui.input>input {
+    text-align:center !important;
+}
+
+#checklist {
+  --background: #ffffff;
+  --text: #414856;
+  --disabled: #C3C8DE;
+  --width: auto;
+  --height: auto;
+  --border-radius: 10px;
+  background: var(--background);
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(#414856, 0.05);
+  padding: 30px 45px;
+  align-items: center;
+  margin: 2rem;
+  margin-left: 0;
+}
+
+.ui.list > .item {
+  padding: 0.5rem 0 !important;
+}

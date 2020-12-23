@@ -1,5 +1,7 @@
 import React from 'react';
-import { Header, List, Item} from 'semantic-ui-react'
+import { Item } from 'semantic-ui-react';
+import './CSS/Results.css';
+import loader from './Assets/loader.gif';
 
 class Results extends React.Component {
     constructor(props) {
@@ -62,11 +64,11 @@ class Results extends React.Component {
            )
        } else if (ingredients.length === 0){
            return(
-           <div><h3>____</h3></div>
+           <div><h3></h3></div>
            )
        } else {
         return(
-            <div><h3>로딩중...</h3></div>
+            <div><img src={loader} alt="loading..." /></div>
             )
        }
     }

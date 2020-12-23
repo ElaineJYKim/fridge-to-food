@@ -1,9 +1,7 @@
 import React from 'react';
-import Fridge from './Fridge';
 import Service from './Service';
-import Results from './Results';
 import './CSS/App.css'
-import {Container, Grid} from 'semantic-ui-react'
+import {Container, Header} from 'semantic-ui-react'
 
 class App extends React.Component {
   constructor(props) {
@@ -15,9 +13,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Service/>
-      </Container>
+      <div>  
+        <nav class="navbar">
+          <div class="navContainer">
+            <Container>
+              <h4 class="navbar-text">오늘 뭐해먹지?</h4>
+            </Container>
+          </div>
+        </nav>
+        <Container>
+          <Service/>
+        </Container>
+      </div>
     );
   }
 }
