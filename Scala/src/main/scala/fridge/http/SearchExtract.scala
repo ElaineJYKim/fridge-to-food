@@ -10,7 +10,6 @@ object SearchExtract {
   val MAXRESULTS = 5
 
   def formatQuery(ingredients: List[String]): String = {
-    // Returns Ingredients in query format of __,__,__, ..
     ingredients  mkString(", ")
   }
 
@@ -40,14 +39,13 @@ object SearchExtract {
     filteredItems
   }
 
-  // TODO: TO EITHER
-  def searchRecipes(userQuery: String): Future[Response] = {
+  def searchRecipes(userQuery: String): Future[Either[String, Response]] = {
     // Returns Sequence of valid DishInfos
     // Seq Max Len = MAXRESULTS
-
-    //val query = formatQuery(userQuery)
-    val itemsSeqFuture: Future[Seq[Item]] = search(userQuery)
-    itemsSeqFuture.map(itemsSeq => Response(filterItems(itemsSeq)))
+      search(userQuery).map {
+          case Right(seqItems) => Right(Response(filterItems(seqItems)))
+          case Left(errorMessage) => Left(errorMessage)
+      }
   }
 
 }

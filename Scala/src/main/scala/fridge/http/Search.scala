@@ -1,17 +1,19 @@
 package fridge.http
 
+import java.io.IOException
 import java.net.URLEncoder
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
+import akka.http.scaladsl.model.StatusCodes.{BadRequest, OK}
 import akka.stream.ActorMaterializer
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.concurrent.duration._
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.model.headers.RawHeader
+import akka.http.scaladsl.unmarshalling.Unmarshal
 import fridge.http.JsonUtil._
-import fridge.http.SearchExtract.searchRecipes
 
 object Search {
   // REQUEST & RESPONSE from api
@@ -49,21 +51,31 @@ object Search {
     request
   }
 
-  def sendRequest(userQuery: String): Future[String] = {
+  def sendRequest(userQuery: String): Future[Either[String, Seq[Item]]] = {
     val responseFuture: Future[HttpResponse] = Http().singleRequest(request(userQuery))
-    val entityFuture: Future[HttpEntity.Strict] = responseFuture.flatMap {
-      response => response.entity.toStrict(2.seconds)
+//    val entityFuture: Future[HttpEntity.Strict] = responseFuture.flatMap {
+//      response => response.entity.toStrict(2.seconds)
+//    }
+//    entityFuture.map(entity => entity.data.utf8String)
+    val entityFuture = responseFuture.flatMap { response =>
+      response.status match {
+        case OK => response.entity.toStrict(2.seconds).map(entity => Right(fromJson[SearchResult](entity.data.utf8String).items))
+        case BadRequest => Future.successful(Left(s"$userQuery: Bad Request"))
+        case _ => Unmarshal(response.entity).to[String].flatMap { entity =>
+          val error = s"Naver Search request failed with status code ${response.status} and query $userQuery"
+          Future.failed(new IOException(error))
+        }
+      }
     }
-
-    entityFuture.map(entity => entity.data.utf8String)
+    entityFuture
   }
 
-  // TODO: Change to EITHER = Extract error message
-  def search(userQuery:String): Future[Seq[Item]] = {
+  def search(userQuery:String): Future[Either[String, Seq[Item]]] = {
     val responseFuture = sendRequest(userQuery)
-    responseFuture.map(result =>
-      fromJson[SearchResult](result)
-    ).map(searchResults => searchResults.items)
+//    responseFuture.map(result =>
+//      fromJson[SearchResult](result)
+//    ).map(searchResults => searchResults.items)
+    responseFuture
   }
 }
 

@@ -4,9 +4,6 @@ import org.jsoup.Jsoup
 import net.ruippeixotog.scalascraper.browser.JsoupBrowser
 import net.ruippeixotog.scalascraper.dsl.DSL._
 import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
-import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
-import net.ruippeixotog.scalascraper.model._
-import scala.util.matching.Regex
 
 // https://index.scala-lang.org/ruippeixotog/scala-scraper/scala-scraper/2.2.0?target=_2.13
 
@@ -41,15 +38,14 @@ object Scraper {
   def getIngredients(doc: Scraper.browser.DocumentType): String = {
     // TODO: from Return String --> Seq[Ingredient]
     // TODO: get the regex right.
-    // TODO: clean up so I don't mutate variables
 
     val pTextList = doc >> texts("#size_ct p")
-    val ingredientPattern = "\\p{L}+\\s*\\d+\\p{L}*,\\s".r  // ingredientPattern.findFirstIn(text) -> Option[match]
+    val ingredientPattern = "\\p{L}+\\s*\\d+\\p{L}*,\\s".r
     var found = false
     var res = ""
 
     pTextList.iterator.takeWhile(_ => !found).foreach{ text =>
-      if (text contains "재료") {
+      if (ingredientPattern.findFirstIn(text).isDefined) {
         found = true
         res += text
       }
@@ -58,7 +54,11 @@ object Scraper {
     res
   }
 
-  // TODO: Find the right placement for this function
   def html2text(html: String): String = Jsoup.parse(html).text
+
+//  def main(args:Array[String]): Unit = {
+//    val link = "https://terms.naver.com/entry.nhn?docId=1990939&cid=48164&categoryId=48205"
+//    print(extractor(link).getOrElse("not found"))
+//  }
 
 }
