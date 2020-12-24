@@ -18,3 +18,10 @@ Request: http://localhost:9000/?
 Response: {Response{ DishInfo{...}, DishInfo{...}, ...}} 
 
 DishInfo(title: String, link: String, thumbnail: String, ingredients: String)
+
+### Next Steps
+
+1. Optimize search result filtering
+2. Add parameters for specifying # of results wanted
+3. Diversify results based on different combinations of querys
+4. Improve ingredient extraction from document
