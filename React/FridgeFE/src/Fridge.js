@@ -1,6 +1,6 @@
 import React from 'react';
 import './CSS/Fridge.scss'
-import { Input, Header, List, Icon, Transition, Button } from 'semantic-ui-react'
+import { Input, Header, List, Icon, Button } from 'semantic-ui-react'
 
 
 class Fridge extends React.Component {
@@ -23,7 +23,6 @@ class Fridge extends React.Component {
         const newIngredients = [...this.state.ingredients, this.state.value];
         this.setState({ingredients: newIngredients})
         this.setState({value:''})
-        this.props.onChange(this.state.ingredients)
     
         event.preventDefault();
     }
@@ -47,7 +46,9 @@ class Fridge extends React.Component {
     renderButton(ingredients) {
       if (ingredients.length > 0) {
         return (
-          <Button compact color='green' onClick={() => this.handleSearch()}>레서피 보기</Button>
+          <div id='searchButton'>
+            <Button floated='right' compact color='green' onClick={() => this.handleSearch()}>레서피 보기</Button>
+          </div>
         );
       }
     }
@@ -57,24 +58,11 @@ class Fridge extends React.Component {
       
         return (
         <div>
-          <form onSubmit={this.handleSubmit}><Header as='h3'>
-            냉장고에    <Input class='input' transparent type="text" placeholder='밥' value={this.state.value} onChange={this.handleChange}/>
+          <form onSubmit={this.handleSubmit}><Header as='h3' textAlign='center'>
+            냉장고에    <Input class='input' transparent type="text" placeholder='버섯' value={this.state.value} onChange={this.handleChange}/>
             있어요
           </Header>
           </form>
-
-          {/* <List selection verticalAlign='middle'>
-          <Transition.Group as={List} duration={200} divided size='medium' verticalAlign='middle'>
-              {ingredients.map((ingredient) => (
-                <List.Item>
-                  <Icon color='orange' name='minus circle' onClick={() => this.removeIngredient(ingredient)}/>
-                  <List.Content>
-                    <List.Header>{ingredient}</List.Header>
-                  </List.Content>
-                </List.Item>
-              ))}
-            </Transition.Group>
-          </List> */}
 
           <List id="checklist">
           {ingredients.map((ingredient) => (

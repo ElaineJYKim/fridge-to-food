@@ -1,0 +1,18 @@
+#resultsList {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px 45px;
+    margin: 2rem;
+    align-items: center;
+    box-shadow: 0 10px 30px #f7f5f7e7;
+}
+
+/* 0 10px 30px rgba(#414856, 0.05); */
+#recipe {
+    margin-bottom: 2rem;
+}
+
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}

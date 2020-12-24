@@ -1,7 +1,7 @@
 import React from 'react';
 import Service from './Service';
 import './CSS/App.css'
-import {Container, Header} from 'semantic-ui-react'
+import {Container} from 'semantic-ui-react'
 
 class App extends React.Component {
   constructor(props) {
