@@ -1,25 +1,43 @@
-# FRIDGE
-
-A web application that will recommend you recipes depending on the ingredients you have in your fridge. 
-
-A scala application
+# HttpServer
 
 Pulling recipe from Naver Open API: Search
 
-### Scala Backend
 
-GET url/?query=____________
+## Run
+```
+sbt run
+```
 
-query = string
 
-Request: http://localhost:9000/?
-=양파, 버섯...
+## Request
 
-Response: {Response{ DishInfo{...}, DishInfo{...}, ...}} 
+**Sample Request:   http://localhost:9000/?query={list of ingredients}**
 
-DishInfo(title: String, link: String, thumbnail: String, ingredients: String)
+**Url** >  http://localhost:9000
 
-### Next Steps
+**Parameter** >  query: string (ex. '양파, 버섯, 바나나')
+
+**Response**:
+List of DishInfos
+
+``` Json
+{"Recipes": [DishInfo, DishInfo, ...]}
+```
+Where DishInfo is
+``` Scala
+case class DishInfo(title: String, link: String, thumbnail: String, ingredients: String)
+``` 
+
+
+## Dependencies
++ ScalaVersion := 2.13.3
++ akkaHttpV := 10.2.1
++ akkaV := 2.6.10
++ Scala Scraper
++ fasterXML/Jackson
+
+
+## Next Steps
 
 1. Optimize search result filtering
 2. Add parameters for specifying # of results wanted

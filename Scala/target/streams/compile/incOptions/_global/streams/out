@@ -1,0 +1,29 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /Users/user/Desktop/Fridge/Scala/target/scala-2.13/classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Ingredient.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	SearchResult.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	AkkaManager$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JsonUtil$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	AkkaManager.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Scraper.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Response.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JsonUtil$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DishInfo$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HttpServer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	SearchResult$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	SearchExtract.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Item$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JsonUtil.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HttpServer$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	SearchExtract$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Response$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Search$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Scraper$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Search.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DishInfo.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HttpServer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Ingredient$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Item.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: /Users/user/Desktop/Fridge/Scala/target/scala-2.13/classes.bak[0m

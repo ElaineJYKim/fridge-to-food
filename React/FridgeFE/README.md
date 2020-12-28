@@ -1,3 +1,0 @@
-# FRIDGE 
-
-Front end yayay
