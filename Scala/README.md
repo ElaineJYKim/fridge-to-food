@@ -21,12 +21,19 @@ sbt run
 List of DishInfos
 
 ``` Json
-{"Recipes": [DishInfo, DishInfo, ...]}
-```
-Where DishInfo is
-``` Scala
-case class DishInfo(title: String, link: String, thumbnail: String, ingredients: String)
-``` 
+{"Recipes": [
+    {
+        "title": "...", 
+        "link": "http://naver...", 
+        "thumbnail": "http://...", 
+        "ingredients":"..."
+    }, {
+        "title": "...", 
+        "link": "http://naver...", 
+        "thumbnail": "http://...", 
+        "ingredients":"..."
+    }, ...]
+}
 
 
 ## Dependencies

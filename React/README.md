@@ -2,11 +2,9 @@
 
 ## Run Application
 
-! make sure backend server is running before hand
-
-```
-npm start
-```
+1. ! make sure backend server is running before hand
+2. ```npm start```
+3. Install [moesif CORS extension](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=en-US) to bypass CORS Error and turn ON
 
 ## Dependencies
 

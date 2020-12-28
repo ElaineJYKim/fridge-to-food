@@ -1,5 +1,5 @@
 import React from 'react';
-import './CSS/Fridge.scss'
+import './CSS/Fridge.css'
 import { Input, Header, List, Icon, Button } from 'semantic-ui-react'
 
 
